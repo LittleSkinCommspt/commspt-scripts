@@ -11,7 +11,8 @@ ACSEmailStatusUpdateOperational
 | summarize TotalCount = dcount(CorrelationId),
             TotalRecipient = dcount(RecipientId),
             Undelivered = count(DeliveryStatus != "Delivered"),
-            HardBounced = count(IsHardBounce == True)
+            HardBounced = count(IsHardBounce == True or FailureReason == "MailboxUnavailable")
+| extend PercentHardBounced = round((todouble(HardBounced) / TotalCount * 100), 3)
 """
 
 TIMESPAN = "P1D"
