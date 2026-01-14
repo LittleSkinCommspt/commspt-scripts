@@ -55,7 +55,7 @@ def get_oci_email_statistics():
     resp_relayed_total = client.search_logs(details_relayed_total)
     resp_relayed_bounced = client.search_logs(details_relayed_bounced)
     
-    message = f"""📊 ACS Email 统计 [{timespan_str}]
+    message = f"""📊 OCI Email 统计 [{timespan_str}]
     Email Accepted Total: {resp_accepted_total.data.results[0].data["count"]}
     Email Accepted Suppressed: {resp_accepted_suppressed.data.results[0].data["count"]}
     Email Relayed Total: {resp_relayed_total.data.results[0].data["count"]}
