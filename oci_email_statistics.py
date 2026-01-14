@@ -1,26 +1,26 @@
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
-import oci
+from oci.config import from_file
 from oci.loggingsearch import LogSearchClient
 from oci.loggingsearch.models import SearchLogsDetails
 
-from utils.config_manager import config as CONFIG
+from utils.config_manager import config
 from utils.send_message import group_message
 
-config = oci.config.from_file("./.oci/config")
+oci_config = from_file("./.oci/config")
 
-client = LogSearchClient(config)
+client = LogSearchClient(oci_config)
 
-compartment_id = config["tenancy"]
+compartment_id = oci_config["tenancy"]
 
 # time range
 timezone = ZoneInfo("Asia/Shanghai")
 datetime_end = datetime.now(timezone).replace(hour=5, minute=0, second=0, microsecond=0)  # Today 05:00:00
 datetime_start = datetime_end - timedelta(days=1)  # Yesterday 05:00:00
 
-log_stream_accepted = f"{compartment_id}/{CONFIG.oci.log_group_id}/{CONFIG.oci.log_object_id_accepted}"
-log_stream_relayed = f"{compartment_id}/{CONFIG.oci.log_group_id}/{CONFIG.oci.log_object_id_relayed}"
+log_stream_accepted = f"{compartment_id}/{config.oci.log_group_id}/{config.oci.log_object_id_accepted}"
+log_stream_relayed = f"{compartment_id}/{config.oci.log_group_id}/{config.oci.log_object_id_relayed}"
 
 details_accepted_total = SearchLogsDetails(
     search_query=f'search "{log_stream_accepted}" | count', time_start=datetime_start, time_end=datetime_end
@@ -69,4 +69,4 @@ Relayed Bounced: {relayed_bounced}
 
 print(message)
 
-group_message(CONFIG.groups_ids.commspt, message)
+group_message(config.groups_ids.commspt, message)
