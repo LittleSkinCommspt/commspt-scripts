@@ -117,7 +117,9 @@ dependencies = [
     { name = "httpx", extra = ["http2", "socks"] },
     { name = "loguru" },
     { name = "oci" },
+    { name = "pathlib" },
     { name = "pydantic" },
+    { name = "pytz" },
     { name = "pyyaml" },
 ]
 
@@ -126,7 +128,9 @@ requires-dist = [
     { name = "httpx", extras = ["http2", "socks"], specifier = ">=0.28.1" },
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "oci", specifier = ">=2.165.0" },
+    { name = "pathlib", specifier = ">=1.0.1" },
     { name = "pydantic", specifier = ">=2.11.7" },
+    { name = "pytz", specifier = ">=2025.2" },
     { name = "pyyaml", specifier = ">=6.0.2" },
 ]
 
@@ -278,6 +282,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/7a/20/7cab8a81f81fa1c185e5fa659fc12066a894393bd05920c2523142ba58a3/oci-2.165.0.tar.gz", hash = "sha256:c04586994bad57b3d929ba3f0e640dcd80c7122a074e4fe54f2b4886e2b27529", size = 16302512, upload-time = "2026-01-13T04:51:18.678Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/df/ec/e65a03afe77c5d96d391f3421b349fa8818e9568ef7b3910cffdc6d1df6b/oci-2.165.0-py3-none-any.whl", hash = "sha256:5dcf32fa3aaf47dde65ca16f0822a1cfd75487a5fc21253ad2045a9dfff4abc7", size = 33227901, upload-time = "2026-01-13T04:51:10.824Z" },
+]
+
+[[package]]
+name = "pathlib"
+version = "1.0.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ac/aa/9b065a76b9af472437a0059f77e8f962fe350438b927cb80184c32f075eb/pathlib-1.0.1.tar.gz", hash = "sha256:6940718dfc3eff4258203ad5021090933e5c04707d5ca8cc9e73c94a7894ea9f", size = 49298, upload-time = "2014-09-03T15:41:57.18Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/78/f9/690a8600b93c332de3ab4a344a4ac34f00c8f104917061f779db6a918ed6/pathlib-1.0.1-py3-none-any.whl", hash = "sha256:f35f95ab8b0f59e6d354090350b44a80a80635d22efdedfa84c7ad1cf0a74147", size = 14363, upload-time = "2022-05-04T13:37:20.585Z" },
 ]
 
 [[package]]

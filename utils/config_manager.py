@@ -1,5 +1,7 @@
+from typing import Annotated
 import yaml
 from pydantic import BaseModel
+from pathlib import Path
 
 
 class OneBotAPIConfig(BaseModel):
@@ -29,11 +31,23 @@ class AzureAPIConfig(BaseModel):
     login_id: str
     log_workspace_id: str
 
+class OracleCloudConfig(BaseModel):
+    user: str
+    key_file: Annotated[Path, str] = Path.cwd() / "oci_api_key.pem"
+    fingerprint: str
+    tenancy: str
+    region: str
+    compartment_id: str
+    log_group_id: str
+    log_object_id_accepted: str
+    log_object_id_relayed: str
+
 class Config(BaseModel):
     onebot_api: OneBotAPIConfig
     littleskin: LittleSkinConfig
     groups_ids: GroupsIdsConfig
     azure_api: AzureAPIConfig
+    oracle_cloud: OracleCloudConfig
 
 
 _loaded_config = yaml.safe_load(open(".config.yaml", "r", encoding="utf-8"))

@@ -8,6 +8,7 @@ dependencies = [
     "httpx[http2,socks]>=0.28.1",
     "loguru>=0.7.3",
     "oci>=2.165.0",
+    "pathlib>=1.0.1",
     "pydantic>=2.11.7",
     "pytz>=2025.2",
     "pyyaml>=6.0.2",
