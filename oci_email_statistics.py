@@ -16,7 +16,7 @@ compartment_id = config["tenancy"]
 
 
 timezone = ZoneInfo("Asia/Shanghai")
-datetime_end = datetime.now(timezone).replace(hour=0, minute=0, second=0, microsecond=0)  # Today 00:00:00
+datetime_end = datetime.now(timezone).replace(hour=5, minute=0, second=0, microsecond=0)  # Today 05:00:00
 datetime_start = datetime_end - timedelta(days=1)  # Yesterday 00:00:00
 
 
