@@ -12,6 +12,5 @@ wheels/
 # Project secrets
 .config.yaml
 
-.python-version
-
-.vscode/
+# Oracle
+.oci/
