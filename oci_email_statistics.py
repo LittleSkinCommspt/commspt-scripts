@@ -79,13 +79,13 @@ message = f"""📊 OCI Email 统计
 
 Accepted Total: {accepted_total}
 Accepted Suppressed: {accepted_suppressed}
+Accepted Suppression Rate: {round(accepted_suppressed / accepted_total * 100, 2)}%
 Accepted Recipients: {accepted_recipients}
-Suppressed Rate: {round(accepted_suppressed / accepted_total * 100, 2)}%
 
 Relayed Total: {relayed_total}
 Relayed Bounced: {relayed_bounced}
+Relayed Bounce Rate: {round(relayed_bounced / relayed_total * 100, 2)}%
 Relayed Recipients: {relayed_recipients}
-Bounced Rate: {round(relayed_bounced / relayed_total * 100, 2)}%
 """
 
 print(message)
